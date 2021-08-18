@@ -1,0 +1,22 @@
+serviceMonitor:
+  # When set true then use a ServiceMonitor to configure scraping
+  enabled: true
+  # Set labels for the ServiceMonitor, use this to define your scrape label for Prometheus Operator
+  labels:
+    release: prometheus
+
+config:
+  datasource:
+    # Specify one of both datasource or datasourceSecret
+    host: postgres
+    user: postgres
+    # Only one of password and passwordSecret can be specified
+    password: postgres
+    # Specify passwordSecret if DB password is stored in secret.
+    passwordSecret: {}
+    # Secret name
+    #  name:
+    # Password key inside secret
+    #  key:
+    port: "5432"
+    database: 'chosen_hydra-prod-01'
